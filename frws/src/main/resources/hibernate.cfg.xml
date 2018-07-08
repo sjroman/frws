@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">webTrainUser</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/webtraindb</property>
+        <property name="hibernate.connection.username">webTrainUser</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <property name="show_sql">true</property>
+        <property name="hibernate.id.new_generator_mappings">true</property>
+        <!-- you can change this to create if you want to drop the database contents each time and write new values, whereas update just updates existing tables -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- this is configuration to use the C3P0 3rd party connection pool tool, which is more efficient than the base hibernate pool -->
+        <property name="hibernate.c3p0.min_size">3</property>
+        <property name="hibernate.c3p0.max_size">25</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        
+        <mapping class="com.freeingreturns.ws.database.entity.CustomerEntity"></mapping>
+        
+    </session-factory>
+</hibernate-configuration>
