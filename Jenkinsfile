@@ -11,9 +11,19 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                 sh 'mvn test'
+            }
+        } 
+        stage('Deploy') {
+            steps {
+                sh '"deploy"'
+            }
+        } 
+        stage('Integration Test') {
+            steps {
+                sh 'echo "integration test"'
             }
         } 
     }
